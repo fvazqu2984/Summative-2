@@ -127,7 +127,7 @@ public class AuthorControllerTest {
     }
 
     @Test
-    public void testDeleteCustomer() throws Exception {
+    public void testDeleteAuthor() throws Exception {
         Author author = new Author();
         author.setFirstName("John");
         author.setLastName("Smith");

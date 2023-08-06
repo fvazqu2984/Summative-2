@@ -89,7 +89,7 @@ public class BookControllerTest {
     }
 
     @Test
-    public void testGetCustomerById() throws Exception {
+    public void testGetBookById() throws Exception {
         Author author = new Author();
         author.setFirstName("John");
         author.setLastName("Smith");
@@ -169,7 +169,7 @@ public class BookControllerTest {
     }
 
     @Test
-    public void testUpdateAuthor() throws Exception {
+    public void testUpdateBook() throws Exception {
         Author author = new Author();
         author.setFirstName("John");
         author.setLastName("Smith");
