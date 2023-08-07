@@ -1,6 +1,5 @@
 package com.company.bookstore.repository;
 
-
 import com.company.bookstore.model.Author;
 import com.company.bookstore.model.Book;
 import com.company.bookstore.model.Publisher;
@@ -34,7 +33,6 @@ public class BookRepositoryTest {
         bookRepo.deleteAll();
         authorRepo.deleteAll();
         publisherRepo.deleteAll();
-
     }
 
     @Test
@@ -57,7 +55,7 @@ public class BookRepositoryTest {
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -68,7 +66,7 @@ public class BookRepositoryTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
 
         book = bookRepo.save(book);
@@ -77,8 +75,6 @@ public class BookRepositoryTest {
         Optional<Book> book1 = bookRepo.findById(book.getId());
 
         assertEquals(book1.get(), book);
-
-
     }
 
     @Test
@@ -102,7 +98,7 @@ public class BookRepositoryTest {
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -113,7 +109,7 @@ public class BookRepositoryTest {
         book1.setPublishDate(LocalDate.of(2010, 1, 5));
         book1.setAuthorId(author.getId());
         book1.setTitle("John's Book1");
-        book1.setPublisherId(publisher.getId());
+        book1.setPublisherId(publisher.getPublisher_id());
         book1.setPrice(new BigDecimal("19.99"));
 
         book1 = bookRepo.save(book1);
@@ -123,7 +119,7 @@ public class BookRepositoryTest {
         book2.setPublishDate(LocalDate.of(2000, 12, 3));
         book2.setAuthorId(author.getId());
         book2.setTitle("John's Book2");
-        book2.setPublisherId(publisher.getId());
+        book2.setPublisherId(publisher.getPublisher_id());
         book2.setPrice(new BigDecimal("15.99"));
 
         book2 = bookRepo.save(book2);
@@ -155,7 +151,7 @@ public class BookRepositoryTest {
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -166,7 +162,7 @@ public class BookRepositoryTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book1");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
 
         book = bookRepo.save(book);
@@ -176,7 +172,7 @@ public class BookRepositoryTest {
         book.setPublishDate(LocalDate.of(2000, 12, 3));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book2");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("15.99"));
 
         book = bookRepo.save(book);
@@ -207,7 +203,7 @@ public class BookRepositoryTest {
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -218,7 +214,7 @@ public class BookRepositoryTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book1");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
 
         book = bookRepo.save(book);
@@ -256,7 +252,7 @@ public class BookRepositoryTest {
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -267,7 +263,7 @@ public class BookRepositoryTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
 
         book = bookRepo.save(book);
@@ -303,7 +299,7 @@ public class BookRepositoryTest {
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -313,7 +309,7 @@ public class BookRepositoryTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
         book = bookRepo.save(book);
 
@@ -322,10 +318,7 @@ public class BookRepositoryTest {
 
         // Assert
         assertEquals(1, bookList.size());
-
     }
-
-
 }
 
 

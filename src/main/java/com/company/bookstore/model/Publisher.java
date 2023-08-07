@@ -92,5 +92,4 @@ public class Publisher {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }

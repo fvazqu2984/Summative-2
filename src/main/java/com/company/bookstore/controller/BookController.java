@@ -59,5 +59,4 @@ public class BookController {
     public List<Book> getCustomersByAuthorId(@PathVariable int authorId) {
         return repo.findByAuthorId(authorId);
     }
-
 }

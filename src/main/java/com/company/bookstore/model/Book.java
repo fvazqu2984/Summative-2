@@ -18,7 +18,6 @@ public class Book implements Serializable {
     @Column(name = "book_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String isbn;
     private LocalDate publishDate;
     private int authorId;
