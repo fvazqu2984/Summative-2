@@ -1,3 +1,5 @@
+# Get a book by id:
+# Including the author and publisher of the book.
 type Book {
     id: ID!
     title: String!
@@ -5,12 +7,16 @@ type Book {
     publisher: Publisher!
 }
 
+# Get an author by id:
+# Including books by the author.
 type Author {
     id: ID!
     name: String!
     books: [Book!]!
 }
 
+# Get a publisher by id:
+# Including books for the publisher and authors for the books.
 type Publisher {
     id: ID!
     name: String!
