@@ -51,6 +51,7 @@ public class BookRepositoryTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
@@ -59,6 +60,7 @@ public class BookRepositoryTest {
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
+
 
         //Act...
         Book book = new Book();
@@ -94,6 +96,7 @@ public class BookRepositoryTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
@@ -147,6 +150,7 @@ public class BookRepositoryTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
@@ -248,6 +252,7 @@ public class BookRepositoryTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
@@ -295,6 +300,7 @@ public class BookRepositoryTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");

@@ -61,11 +61,12 @@ public class BookControllerTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -76,7 +77,7 @@ public class BookControllerTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
 
         String json = mapper.writeValueAsString(book);
@@ -102,11 +103,12 @@ public class BookControllerTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -117,7 +119,7 @@ public class BookControllerTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
 
         String json = mapper.writeValueAsString(book);
@@ -142,11 +144,12 @@ public class BookControllerTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -157,7 +160,7 @@ public class BookControllerTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
 
         String json = mapper.writeValueAsString(book);
@@ -182,11 +185,12 @@ public class BookControllerTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -197,7 +201,7 @@ public class BookControllerTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
         bookRepo.save(book);
 
@@ -228,11 +232,12 @@ public class BookControllerTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -243,7 +248,7 @@ public class BookControllerTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
         bookRepo.save(book);
 
@@ -267,11 +272,12 @@ public class BookControllerTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
+        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
         publisher.setState("TX");
-        publisher.setPostalCode("54321");
+        publisher.setPostal_code("54321");
         publisher.setPhone("222-333-4444");
         publisher.setEmail("publisher@gmail.com");
         publisher = publisherRepo.save(publisher);
@@ -283,7 +289,7 @@ public class BookControllerTest {
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
         book.setTitle("John's Book");
-        book.setPublisherId(publisher.getId());
+        book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
         bookRepo.save(book);
 
