@@ -1,0 +1,32 @@
+# Get a book by id:
+# Including the author and publisher of the book.
+# TODO - change fields name if necessary
+type Book {
+    id: ID!
+    title: String!
+    author: Author!
+    publisher: Publisher!
+}
+
+# Get an author by id:
+# Including books by the author.
+# TODO - change fields name if necessary
+type Author {
+    id: ID!
+    name: String!
+    books: [Book!]!
+}
+
+# Get a publisher by id:
+# Including books for the publisher and authors for the books.
+type Publisher {
+    id: ID!
+    name: String!
+    books: [Book!]!
+}
+
+type Query {
+    findBookById(id: ID!): Book
+    findAuthorById(id: ID!): Author
+    findPublisherById(id: ID!): Publisher
+}
