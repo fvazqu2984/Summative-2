@@ -3,6 +3,8 @@ package com.company.bookstore.controller;
 import com.company.bookstore.model.Publisher;
 import com.company.bookstore.repository.PublisherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +21,7 @@ public class PublisherController {
         this.publisherRepository = publisherRepository;
     }
 
+    // RESTful APIs
     // 1. Create
     @PostMapping("/create")
     public Publisher create(@RequestBody Publisher publisher) {
@@ -50,4 +53,15 @@ public class PublisherController {
         publisherRepository.deleteById(id);
         return ResponseEntity.ok("Successfully Deleted a Publisher!");
     }
+
+    // GraphQLs
+    // 1. Get publisher by id: Including books for the publisher and authors for the books
+    @QueryMapping
+    public Optional<Publisher> getPublisherById(@Argument int id) {
+        return publisherRepository.findById(id);
+    }
+
+    // 2. Get an author by id: Including books by the author
+
+    // 3. Get a book by id: Including the author and publisher of the book
 }

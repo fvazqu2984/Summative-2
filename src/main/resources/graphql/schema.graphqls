@@ -1,5 +1,6 @@
 # Get a book by id:
 # Including the author and publisher of the book.
+# TODO - change fields name if necessary
 type Book {
     id: ID!
     title: String!
@@ -9,6 +10,7 @@ type Book {
 
 # Get an author by id:
 # Including books by the author.
+# TODO - change fields name if necessary
 type Author {
     id: ID!
     name: String!
