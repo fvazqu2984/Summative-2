@@ -1,42 +1,40 @@
 package com.company.bookstore.model;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Table(name = "publisher")
-public class Publisher implements Serializable {
-
+@Table(name="publisher")
+public class Publisher {
+    // fields
     @Id
-    @Column(name = "publisher_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int publisher_id;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "publisherId")
-    private Set<Book> books = new HashSet<>();
+    // TODO - set cascade
+//    @OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Set<Book> books;
+
+    // TODO - in book class
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "publisher_id")
+//    private Publisher publisher;
 
     private String name;
     private String street;
     private String city;
     private String state;
-    private String postalCode;
+    private String postal_code;
     private String phone;
     private String email;
 
-    public int getId() {
-        return id;
+    // getters and setters
+    public int getPublisher_id() {
+        return publisher_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPublisher_id(int publisher_id) {
+        this.publisher_id = publisher_id;
     }
 
     public String getName() {
@@ -71,12 +69,12 @@ public class Publisher implements Serializable {
         this.state = state;
     }
 
-    public String getPostalCode() {
-        return postalCode;
+    public String getPostal_code() {
+        return postal_code;
     }
 
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
     }
 
     public String getPhone() {
@@ -93,33 +91,5 @@ public class Publisher implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Publisher publisher = (Publisher) o;
-        return id == publisher.id && Objects.equals(books, publisher.books) && Objects.equals(name, publisher.name) && Objects.equals(street, publisher.street) && Objects.equals(city, publisher.city) && Objects.equals(state, publisher.state) && Objects.equals(postalCode, publisher.postalCode) && Objects.equals(phone, publisher.phone) && Objects.equals(email, publisher.email);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, books, name, street, city, state, postalCode, phone, email);
-    }
-
-    @Override
-    public String toString() {
-        return "Publisher{" +
-                "id=" + id +
-                ", books=" + books +
-                ", name='" + name + '\'' +
-                ", street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 }
