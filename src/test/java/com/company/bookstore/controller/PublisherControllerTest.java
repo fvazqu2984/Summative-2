@@ -31,20 +31,10 @@ class PublisherControllerTest {
     @BeforeEach
     public void setup() {
         publisher = new Publisher();
-        // TODO - unnecessary? remove?
-//        publisher.setPublisher_id(1);
-//        publisher.setName("Publisher1");
-//        publisher.setStreet("Street 1");
-//        publisher.setCity("City 1");
-//        publisher.setState("State 1");
-//        publisher.setPostal_code("12345");
-//        publisher.setPhone("123-456-7890");
-//        publisher.setEmail("publisher1@example.com");
     }
 
     @Test
     void testCreatePublisher() throws Exception {
-        // TODO - Mockito + mockMvc
         when(publisherRepository.save(any(Publisher.class))).thenReturn(publisher);
 
         mockMvc.perform(post("/publisher/create")
