@@ -82,7 +82,7 @@ public class BookControllerTest {
 
         String json = mapper.writeValueAsString(book);
 
-        mockMvc.perform(post("/books")
+        mockMvc.perform(post("/book/create")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isCreated());
@@ -103,7 +103,6 @@ public class BookControllerTest {
         author = authorRepo.save(author);
 
         Publisher publisher = new Publisher();
-        publisher.setPublisher_id(1);
         publisher.setName("PublisherTM");
         publisher.setStreet("321 Street");
         publisher.setCity("Austin");
@@ -115,6 +114,7 @@ public class BookControllerTest {
 
         //Act...
         Book book = new Book();
+        book.setId(1);
         book.setIsbn("0-061-96436-0");
         book.setPublishDate(LocalDate.of(2010, 1, 5));
         book.setAuthorId(author.getId());
@@ -122,12 +122,8 @@ public class BookControllerTest {
         book.setPublisherId(publisher.getPublisher_id());
         book.setPrice(new BigDecimal("19.99"));
 
-        String json = mapper.writeValueAsString(book);
-
-        mockMvc.perform(get("/books/{id}", 1))
+        mockMvc.perform(get("/book/read/{id}", 1))
                 .andExpect(status().isOk());
-
-
     }
 
     @Test
@@ -165,7 +161,7 @@ public class BookControllerTest {
 
         String json = mapper.writeValueAsString(book);
 
-        mockMvc.perform(get("/books")
+        mockMvc.perform(get("/book/read/all")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isOk());
@@ -212,7 +208,7 @@ public class BookControllerTest {
 
         String json = mapper.writeValueAsString(book);
 
-        mockMvc.perform(put("/books")
+        mockMvc.perform(put("/book/update")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isNoContent());
@@ -252,10 +248,9 @@ public class BookControllerTest {
         book.setPrice(new BigDecimal("19.99"));
         bookRepo.save(book);
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/books/{id}", book.getId())
+        mockMvc.perform(MockMvcRequestBuilders.delete("/book/delete/{id}", book.getId())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
-
     }
 
     @Test
@@ -297,10 +292,7 @@ public class BookControllerTest {
 
         List<Book> bookList = Arrays.asList(book);
 
-        mockMvc.perform(get("/booksByAuthorId/{authorId}", author.getId()))
+        mockMvc.perform(get("/book/searchByAuthorId/{authorId}", author.getId()))
                 .andExpect(status().isOk());
     }
-
-
 }
-

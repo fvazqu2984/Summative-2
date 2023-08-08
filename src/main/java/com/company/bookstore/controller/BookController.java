@@ -10,20 +10,20 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/book")
 public class BookController {
-
     @Autowired
     BookRepository repo;
 
     //CreateBook
-    @PostMapping("/books")
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Book addBook(@RequestBody Book book) {
         return repo.save(book);
     }
 
     //Get book by id
-    @GetMapping("/books/{id}")
+    @GetMapping("/read/{id}")
     public Book getBookById(@PathVariable int id) {
 
         Optional<Book> returnVal = repo.findById(id);
@@ -35,27 +35,27 @@ public class BookController {
     }
 
     //Get all books
-    @GetMapping("/books")
+    @GetMapping("/read/all")
     public List<Book> getBooks() {
         return repo.findAll();
     }
 
     //Update book
-    @PutMapping("/books")
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateBook(@RequestBody Book book) {
         repo.save(book);
     }
 
     //Delete book
-    @DeleteMapping("/books/{id}")
+    @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBook(@PathVariable int id) {
         repo.deleteById(id);
     }
 
     //Search book by author id
-    @GetMapping("/booksByAuthorId/{authorId}")
+    @GetMapping("/searchByAuthorId/{authorId}")
     public List<Book> getCustomersByAuthorId(@PathVariable int authorId) {
         return repo.findByAuthorId(authorId);
     }

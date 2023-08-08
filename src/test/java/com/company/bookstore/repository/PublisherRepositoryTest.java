@@ -28,7 +28,6 @@ public class PublisherRepositoryTest {
 
         // 2. initialization of publisher1
         publisher1 = new Publisher();
-        publisher1.setPublisher_id(1);
         publisher1.setName("Publisher1");
         publisher1.setStreet("Street 1");
         publisher1.setCity("City 1");
@@ -39,7 +38,6 @@ public class PublisherRepositoryTest {
 
         // 3. initialization of publisher2
         publisher2 = new Publisher();
-        publisher2.setPublisher_id(2);
         publisher2.setName("Publisher2");
         publisher2.setStreet("Street 2");
         publisher2.setCity("City 2");

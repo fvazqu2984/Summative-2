@@ -26,9 +26,7 @@ public class AuthorControllerTest {
     @Autowired
     private AuthorRepository authorRepo;
 
-
     ObjectMapper mapper = new ObjectMapper();
-
 
     @Test
     public void testCreateAuthor() throws Exception {
@@ -45,7 +43,7 @@ public class AuthorControllerTest {
 
         String json = mapper.writeValueAsString(author);
 
-        mockMvc.perform(post("/authors")
+        mockMvc.perform(post("/author/create")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isCreated());
@@ -65,7 +63,7 @@ public class AuthorControllerTest {
         author.setEmail("jsmith@gmail.com");
         author = authorRepo.save(author);
 
-        mockMvc.perform(get("/authors/{id}", 1))
+        mockMvc.perform(get("/author/read/{id}", 1))
                 .andExpect(status().isOk());
 
 
@@ -99,7 +97,7 @@ public class AuthorControllerTest {
 
         String json = mapper.writeValueAsString(author);
 
-        mockMvc.perform(get("/authors")
+        mockMvc.perform(get("/author/read/all")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isOk());
@@ -120,7 +118,7 @@ public class AuthorControllerTest {
 
         String json = mapper.writeValueAsString(author);
 
-        mockMvc.perform(put("/authors")
+        mockMvc.perform(put("/author/update")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isNoContent());
@@ -129,6 +127,7 @@ public class AuthorControllerTest {
     @Test
     public void testDeleteAuthor() throws Exception {
         Author author = new Author();
+        author.setId(1);
         author.setFirstName("John");
         author.setLastName("Smith");
         author.setStreet("123 Street");
@@ -137,12 +136,9 @@ public class AuthorControllerTest {
         author.setPostalCode("12345");
         author.setPhone("444-555-6666");
         author.setEmail("jsmith@gmail.com");
-        author = authorRepo.save(author);
+        authorRepo.save(author);
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/delete/customer/1")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
-
+        mockMvc.perform(delete("/author/delete/1"))
+                .andExpect(status().isNoContent());
     }
-
 }

@@ -19,11 +19,16 @@ public class Book implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String isbn;
+    @Column(name = "publish_date")
     private LocalDate publishDate;
-    private int authorId;
     private String title;
-    private int publisherId;
     private BigDecimal price;
+    @Column(name = "author_id")
+    private int authorId;
+    @Column(name = "publisher_id")
+    private int publisherId;
+
+    public Book(){}
 
     public int getId() {
         return id;

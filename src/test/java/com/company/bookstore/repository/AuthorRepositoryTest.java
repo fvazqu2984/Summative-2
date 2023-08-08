@@ -179,8 +179,4 @@ public class AuthorRepositoryTest {
         //Assert...
         assertFalse(author1.isPresent());
     }
-
-
-
-
 }

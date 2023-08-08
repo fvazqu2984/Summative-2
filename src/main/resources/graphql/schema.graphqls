@@ -1,28 +1,42 @@
 # Get a book by id:
 # Including the author and publisher of the book.
-# TODO - change fields name if necessary
 type Book {
     id: ID!
+    isbn: String!
+    publishDate: String!
     title: String!
-    author: Author!
-    publisher: Publisher!
+    price: Float!
+    author: Author
+    publisher: Publisher
 }
 
 # Get an author by id:
 # Including books by the author.
-# TODO - change fields name if necessary
 type Author {
     id: ID!
-    name: String!
-    books: [Book!]!
+    firstName: String!
+    lastName: String!
+    street: String!
+    city: String!
+    state: String!
+    postalCode: String!
+    phone: String!
+    email: String!
+    books: [Book]
 }
 
 # Get a publisher by id:
 # Including books for the publisher and authors for the books.
 type Publisher {
-    id: ID!
+    publisher_id: ID!
     name: String!
-    books: [Book!]!
+    street: String!
+    city: String!
+    state: String!
+    post_code: String!
+    phone: String!
+    email: String!
+    books: [Book]
 }
 
 type Query {
