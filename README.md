@@ -3,7 +3,7 @@
   - Sun, Xiaowen
   - Vazquez, Francisco
 
-### Description
+### Descriptions:
 - Implement the following user stories:
     - As an API user, I would like to create, read, update, and delete authors.
     - As an API user, I would like to create, read, update, and delete publishers.
